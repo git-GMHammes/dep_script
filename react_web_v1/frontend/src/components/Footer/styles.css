@@ -1,0 +1,9 @@
+/* src\public\script\react_web_v1\frontend\src\components\Footer\styles.css */
+.footer {
+  background: linear-gradient(to right, #330033, #14007A);
+  width: 100%;
+  padding: 10px 10px;
+  color: #fff;
+  position: relative;
+  z-index: 10;
+}

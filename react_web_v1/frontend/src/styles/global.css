@@ -1,0 +1,15 @@
+/* src\public\script\react_web_v1\frontend\src\styles\global.css */
+
+/* APENAS O ESSENCIAL - SEM FLEXBOX NO BODY */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Classe utilitária para quebrar palavras longas */
+.force-break {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}

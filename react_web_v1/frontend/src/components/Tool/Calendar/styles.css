@@ -1,0 +1,137 @@
+/* Tema suave para o calendário */
+.calendar-soft {
+    background-color: #f5f7fa; /* Fundo suave em vez de branco puro */
+    color: #4a5568; /* Texto em cinza escuro para bom contraste */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.07);
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+    border: 1px solid #e2e8f0;
+}
+
+/* Estilo para o cabeçalho do calendário */
+.calendar-soft .calendar-header {
+    background-color: #edf2f7; /* Cinza azulado bem claro */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.calendar-soft .month-title {
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: center;
+    color: #3182ce; /* Azul médio para destaque */
+}
+
+.calendar-soft .year {
+    font-size: 0.85rem;
+    color: #718096; /* Cinza médio */
+    margin-top: -2px;
+}
+
+.calendar-soft .nav-btn {
+    background: none;
+    border: none;
+    color: #4a5568;
+    font-size: 1.2rem;
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    border-radius: 4px;
+}
+
+.calendar-soft .nav-btn:hover {
+    background-color: #e2e8f0;
+    color: #3182ce;
+}
+
+/* Tabela do calendário */
+.calendar-soft .calendar-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.calendar-soft .calendar-table th {
+    padding: 8px 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #718096; /* Cinza médio */
+    text-align: center;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.calendar-soft .calendar-table td {
+    text-align: center;
+    padding: 2px;
+    position: relative;
+    height: 32px;
+}
+
+.calendar-soft .day-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 28px;
+    width: 28px;
+    margin: 0 auto;
+    border-radius: 50%;
+    font-size: 0.85rem;
+    transition: background-color 0.15s ease;
+}
+
+.calendar-soft .day-cell:hover {
+    background-color: #e2e8f0;
+    cursor: pointer;
+}
+
+/* Estilo para o dia atual */
+.calendar-soft .current-day {
+    background-color: #4299e1; /* Azul médio */
+    color: white;
+    font-weight: 600;
+}
+
+.calendar-soft .current-day:hover {
+    background-color: #3182ce; /* Azul mais escuro no hover */
+}
+
+/* Estilo para os fins de semana */
+.calendar-soft .weekend .day-cell {
+    color: #e53e3e; /* Vermelho para fins de semana */
+}
+
+/* Rodapé do calendário */
+.calendar-soft .calendar-footer {
+    background-color: #edf2f7; /* Cinza azulado bem claro */
+    padding: 8px;
+    text-align: center;
+    font-size: 0.75rem;
+    color: #718096; /* Cinza médio */
+    border-top: 1px solid #e2e8f0;
+}
+
+/* Responsivo para telas pequenas */
+@media (max-width: 350px) {
+    .calendar-soft {
+        max-width: 300px;
+    }
+    
+    .calendar-soft .day-cell {
+        height: 25px;
+        width: 25px;
+        font-size: 0.75rem;
+    }
+    
+    .calendar-soft .calendar-table th {
+        font-size: 0.7rem;
+    }
+}

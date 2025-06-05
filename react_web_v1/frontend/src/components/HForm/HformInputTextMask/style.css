@@ -1,0 +1,83 @@
+.fancy-form-group {
+  position: relative;
+  margin-top: 0.4rem;
+}
+
+.fancy-form-input {
+  border: 1.5px solid #222;
+  border-radius: 10px;
+  padding: 0.25rem 1rem 0.15rem 1rem;
+  font-size: 0.98rem;
+  background: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  height: 32px;
+  line-height: 1.2rem;
+}
+
+/* LABEL FLUTUANTE */
+.fancy-form-label {
+  position: absolute;
+  top: -0.75em;
+  /* Ajuste fino do topo */
+  left: 1.2em;
+  background: #fff;
+  padding: 0 6px;
+  /* Menos padding lateral! */
+  font-size: 1rem;
+  color: #666;
+  pointer-events: none;
+  z-index: 2;
+  line-height: 1;
+  /* Filete branco só em cima e embaixo, não nas laterais */
+  box-shadow:
+    0 2px 0 0 #fff,
+    /* filete branco embaixo */
+    0 -2px 0 0 #fff;
+  /* filete branco em cima */
+}
+
+/* Borda colorida nos estados */
+.fancy-form-input:focus:not(.is-invalid):not([readonly]) {
+  border-color: #86b7fe;
+  box-shadow: 0 0 0 0.13rem rgba(13, 110, 253, .20);
+}
+
+.fancy-form-input.is-invalid,
+.fancy-form-input[readonly] {
+  border-color: #dc3545;
+  box-shadow: 0 0 4px #dc3545;
+}
+
+.fancy-form-input.is-invalid+.fancy-form-label,
+.fancy-form-input[readonly]+.fancy-form-label {
+  color: #dc3545;
+}
+
+.fancy-form-input.is-valid {
+  border-color: #198754;
+  box-shadow: 0 0 0 0.13rem rgba(25, 135, 84, .20);
+}
+
+.fancy-form-input.is-valid+.fancy-form-label {
+  color: #198754;
+}
+
+/* Feedback SEM empurrar campo de baixo, com espaço mínimo */
+.fancy-form-group .invalid-feedback,
+.fancy-form-group .valid-feedback {
+  min-height: 1.1em;
+  margin-top: 0.10rem;
+  font-size: 0.92rem;
+  line-height: 1.2;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.15s;
+  display: block;
+}
+
+.fancy-form-group .is-invalid~.invalid-feedback,
+.fancy-form-group .is-valid~.valid-feedback {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.15s;
+}

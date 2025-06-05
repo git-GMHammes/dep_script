@@ -1,5 +1,6 @@
-// C:\laragon\www\hform\src\public\script\react_modelo_v3\frontend\src\components\HForm\HformInputTextMask\index.jsx
+// src\public\script\react_web_v1\frontend\src\components\HForm\HformInputTextMask\index.jsx
 import React from 'react';
+import './style.css';
 import { useFormContext } from 'react-hook-form';
 
 /**
@@ -210,7 +211,7 @@ const HformInputTextMask = ({
     // Movemos este bloco para depois das definições de máscara para garantir
     // que definicoesMascara esteja definido antes de ser usado
     const methods = useFormContext();
-    
+
     // Verificação de segurança para garantir que o contexto do formulário exista
     if (!methods) {
         console.error('HformInputTextMask deve ser usado dentro de um FormProvider');
@@ -222,7 +223,7 @@ const HformInputTextMask = ({
             </div>
         );
     }
-    
+
     const {
         register,
         formState: { errors },
@@ -289,15 +290,12 @@ const HformInputTextMask = ({
     const currentValue = watch(name) || '';
 
     return (
-        <div className="form-group mb-3">
-            {label && (
-                <label htmlFor={name} className="form-label">
-                    {label}
-                </label>
-            )}
+        <div className="fancy-form-group m-3 p-0">
+
             <input
                 type="text"
-                className={`form-control ${errors[name] ? 'is-invalid' : ''}`}
+                className={`form-control fancy-form-input${errors.nome ? ' is-invalid' : ''}`}
+
                 {...fieldRegister}
                 onFocus={() => handleFocus(name, currentValue)}
                 onChange={(e) => {
@@ -328,6 +326,11 @@ const HformInputTextMask = ({
                 translate="no"
                 value={currentValue}
             />
+            {label && (
+                <label className="fancy-form-label" htmlFor={`${name}`}>
+                    {label}
+                </label>
+            )}
 
             {dataListOptions?.length > 0 && (
                 <datalist id={datalistId}>

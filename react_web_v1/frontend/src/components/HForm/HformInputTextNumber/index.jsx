@@ -1,5 +1,6 @@
-// C:\laragon\www\hform\src\public\script\react_modelo_v3\frontend\src\components\HForm\HformInputTextNumber\index.jsx
+// src\public\script\react_web_v1\frontend\src\components\HForm\HformInputTextNumber\index.jsx
 import React from 'react';
+import './style.css';
 import { useFormContext } from 'react-hook-form';
 
 /**
@@ -143,15 +144,11 @@ const HformInputTextNumber = ({
     const currentValue = watch(name) || '';
 
     return (
-        <div className="form-group mb-3">
-            {label && (
-                <label htmlFor={name} className="form-label">
-                    {label}
-                </label>
-            )}
+        <div className="fancy-form-group m-3 p-0">
+
             <input
                 type="text"
-                className={`form-control ${errors[name] ? 'is-invalid' : ''}`}
+                className={`form-control fancy-form-input${errors.nome ? ' is-invalid' : ''}`}
                 {...fieldRegister}
                 onFocus={() => handleFocus(name, currentValue)}
                 accessKey={accessKey}
@@ -179,6 +176,11 @@ const HformInputTextNumber = ({
                 translate="no"
                 value={currentValue}
             />
+            {label && (
+                <label className="fancy-form-label" htmlFor={`${name}`}>
+                    {label}
+                </label>
+            )}
 
             {dataListOptions?.length > 0 && (
                 <datalist id={datalistId}>

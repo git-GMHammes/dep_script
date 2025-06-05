@@ -1,5 +1,6 @@
-// src\public\script\react_modelo_v3\frontend\src\pages\FormularioBootstrap\index.jsx
+// src\public\script\react_web_v1\frontend\src\components\HForm\HformInputTextLetters\index.jsx
 import React from 'react';
+import './style.css';
 import { useFormContext } from 'react-hook-form';
 
 /**
@@ -108,13 +109,13 @@ const HformInputTextLetters = ({
     // Função de validação customizada para permitir apóstrofos sem incluí-los no pattern do HTML
     const validateText = (value) => {
         if (!value) return true;
-        
+
         // Expressões regulares para validação com React Hook Form (podem incluir apóstrofo)
         // Corrigidos os caracteres de escape desnecessários
         const regexLivre = /^[A-Za-zÀ-ÖØ-öø-ÿ\s,.\-'"]+$/;
         const regexNome = /^[A-Za-zÀ-ÖØ-öø-ÿ\s,.\-']+$/;
         const regexEndereco = /^[A-Za-zÀ-ÖØ-öø-ÿ0-9\s,.\-'°/]+$/;
-        
+
         // Verifica o tipo de texto e aplica a regex apropriada
         switch (tipoTexto) {
             case 'Nome':
@@ -142,15 +143,11 @@ const HformInputTextLetters = ({
     const currentValue = watch(name) || '';
 
     return (
-        <div className="form-group mb-3">
-            {label && (
-                <label htmlFor={name} className="form-label">
-                    {label}
-                </label>
-            )}
+        <div className="fancy-form-group m-3 p-0">
+
             <input
                 type="text"
-                className={`form-control ${errors[name] ? 'is-invalid' : ''}`}
+                className={`form-control fancy-form-input${errors.nome ? ' is-invalid' : ''}`}
                 {...fieldRegister}
                 onFocus={() => handleFocus(name, currentValue)}
                 accessKey={accessKey}
@@ -178,6 +175,11 @@ const HformInputTextLetters = ({
                 translate="yes"
                 value={currentValue}
             />
+            {label && (
+                <label className="fancy-form-label" htmlFor={`${name}`}>
+                    {label}
+                </label>
+            )}
 
             {dataListOptions?.length > 0 && (
                 <datalist id={datalistId}>
